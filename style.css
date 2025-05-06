@@ -1,0 +1,98 @@
+
+
+#container {
+    height: 600px;
+    width: 800px;
+    top: 150px;
+    left: 400px;
+    position: absolute;
+    border: 3px solid lightgray;
+    padding: 15px;
+    font-size: xx-large;
+    
+}
+
+.skull {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: skully 6s linear 0s infinite;
+}
+
+@keyframes skully {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    25% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+    50% {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    75% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+}
+
+.glitch {
+    height: 2px;
+    position: absolute;
+    background-color: #f00;
+    opacity: 0;
+}
+.glitch-1 {
+    animation: glitch-effect 10s ease 1s infinite;
+    top: 200px;
+    left: 100px;
+    width: 600px;
+}
+.glitch-2 {
+    animation: glitch-effect 12s ease 5s infinite;
+    top: 300px;
+    left: 300px;
+    width: 400px;
+}
+.glitch-3 {
+    animation: glitch-effect 8s ease 8s infinite;
+    top: 450px;
+    left: 150px;
+    width: 800px;
+}
+
+@keyframes glitch-effect {
+    0%      {opacity: 0;}
+    1%     {opacity: 1;}
+    2%    {opacity: 0;}
+}
+
+body {
+    background: #111;
+    color: #411;
+    font-family: Consolas, Courier, monospace;
+    font-size: 60px;
+    text-shadow: 0 0 15px #411;
+    height: 100%;
+  }
+  
+#core {
+    position: relative;
+    text-align: center;
+}
+  
+.glow {
+    color: #f00;
+    text-shadow: 0px 0px 10px #f00;
+}
+  
+#core span {
+    display: inline-block;
+    padding: 0 10px;
+}
