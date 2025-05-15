@@ -11,7 +11,24 @@
         <div id="core">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
-        <input />
+        <form id="checksolve" >
+          <span>
+            <input class="input-text" type="text" name="key1" id="key1" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key2" id="key2" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key3" id="key3" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key4" id="key4" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key5" id="key5" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key6" id="key6" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key7" id="key7" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key8" id="key8" minlength="1" maxlength="1" />
+            <input class="input-text" type="text" name="key9" id="key9" minlength="1" maxlength="1" />
+          </span>
+          <br />
+          <span>
+            <input type="button" onclick="checksolve()" value="Enter" />
+          </span>
+        </form>
+        
     </div>
     
     <img src="./skull.png" class="skull" />
@@ -19,5 +36,17 @@
     <div class="glitch glitch-1"></div>
     <div class="glitch glitch-2"></div>
     <div class="glitch glitch-3"></div>
+
+    <script>
+      function checksolve() {
+        let value = "";
+        for (var i = 1; i < 10; i++) {
+          value += document.getElementById("key"+i).value;
+          document.getElementById("key"+i).value = "";
+        }
+        console.log(value);
+      }
+    </script>
+
   </body>
 </html>
