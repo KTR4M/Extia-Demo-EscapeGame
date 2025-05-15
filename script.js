@@ -43,3 +43,4 @@ function reset() {
   setTimeout(write, 75);
   $("span").removeClass("glow");
 }
+
