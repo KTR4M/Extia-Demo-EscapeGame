@@ -11,11 +11,11 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 66.6vh; /* Les 2/3 supérieurs */
+  height: 66.6vh;
   z-index: 0;
   background: white;
-  opacity: 0.2; /* Transparence pour rester discret */
-  pointer-events: none; /* Important pour ne pas bloquer les interactions */
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .desktop {
