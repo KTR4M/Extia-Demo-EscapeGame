@@ -1,52 +1,125 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
   <head>
-    <title>Demo Escape Game</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Game - Extia</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="container">
-        <div id="core">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <canvas id="matrixBackground"></canvas>
+    <div class="desktop">
+      <div class="extia-small-logo-container">
+        <img
+          src="assets/extia-small-logo.svg"
+          alt="Extia Small Logo"
+          class="extia-small-logo"
+        />
+      </div>
+      <div class="extia-header">
+        Escape Game By
+        <img src="assets/extia-logo.png" alt="Extia Logo" class="extia-logo" />
+      </div>
+
+      <!-- Barre de menu -->
+      <div class="menu-bar">
+        <div>Fichier</div>
+        <div>Édition</div>
+        <div>Affichage</div>
+        <div>Aide</div>
+      </div>
+
+      <!-- NotePad -->
+      <div class="window notepad" id="notepadWindow">
+        <div class="title-bar">
+          Notepad
+          <div class="window-buttons">
+            <button>-</button>
+            <button>&#9633;</button>
+            <button>x</button>
+          </div>
         </div>
-        <form id="checksolve" >
-          <span>
-            <input class="input-text" type="text" name="key1" id="key1" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key2" id="key2" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key3" id="key3" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key4" id="key4" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key5" id="key5" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key6" id="key6" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key7" id="key7" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key8" id="key8" minlength="1" maxlength="1" />
-            <input class="input-text" type="text" name="key9" id="key9" minlength="1" maxlength="1" />
-          </span>
-          <br />
-          <span>
-            <input type="button" onclick="checksolve()" value="Enter" />
-          </span>
+        <div class="notepad-body" id="notepadOutput"></div>
+      </div>
+
+      <!-- Fenêtre formulaire -->
+      <div class="window form-window" id="formWindow">
+        <div class="title-bar">
+          Formulaire
+          <div class="window-buttons">
+            <button>-</button>
+            <button>&#9633;</button>
+            <button>x</button>
+          </div>
+        </div>
+        <form id="escapeForm">
+          <div class="letter-fields">
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+          </div>
+          <div class="button-fields">
+            <button type="submit">Valider</button>
+            <button type="reset">Effacer</button>
+          </div>
         </form>
-        
+      </div>
+
+      <!-- Terminal -->
+      <div class="window terminal" id="terminalWindow">
+        <div class="title-bar">
+          Terminal
+          <div class="window-buttons">
+            <button>-</button>
+            <button>&#9633;</button>
+            <button>x</button>
+          </div>
+        </div>
+        <div class="terminal-body" id="terminalOutput">
+          > Démarrage du terminal...
+        </div>
+      </div>
+
+      <!-- Icônes style fausses apps -->
+
+      <div class="fake-app computer">
+        <img src="assets/computer.png" alt="Ordinateur" />
+        <div>Ordinateur</div>
+      </div>
+      <div class="fake-app folder">
+        <img src="assets/folder.png" alt="Dossier" />
+        <div>Extia</div>
+      </div>
+      <div class="fake-app bin">
+        <img src="assets/bin.png" alt="Corbeille" />
+        <div>Corbeille</div>
+      </div>
+
+      <!-- Popup -->
+      <div id="popup" class="popup hidden">
+        <div class="popup-content">
+          <p id="popupMessage"></p>
+          <img id="popupGif" src="" alt="Résultat" />
+        </div>
+      </div>
+
+      <!-- Barre de tâche -->
+      <div class="taskbar">
+        <img
+          id="windowIcon"
+          src="assets/windows-logo.png"
+          alt="Icône Windows 95"
+        />
+        <div class="start-button">Démarrer</div>
+      </div>
     </div>
-    
-    <img src="./skull.png" class="skull" />
 
-    <div class="glitch glitch-1"></div>
-    <div class="glitch glitch-2"></div>
-    <div class="glitch glitch-3"></div>
-
-    <script>
-      function checksolve() {
-        let value = "";
-        for (var i = 1; i < 10; i++) {
-          value += document.getElementById("key"+i).value;
-          document.getElementById("key"+i).value = "";
-        }
-        console.log(value);
-      }
-    </script>
-
+    <script src="js/script.js"></script>
   </body>
 </html>
